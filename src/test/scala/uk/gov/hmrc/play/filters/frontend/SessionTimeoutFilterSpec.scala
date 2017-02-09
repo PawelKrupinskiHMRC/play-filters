@@ -31,7 +31,7 @@ class SessionTimeoutFilterSpec extends WordSpecLike with Matchers with MockitoSu
     "update the timestamp if the session is not expired" in new WithApplication {
       val now = new DateTime(2017, 1, 12, 14, 56)
 
-      val clock: () => DateTime = () => now
+      val clock: () => Long = () => now.getMillis
 
       val filter = new SessionTimeoutFilter(clock)
 
